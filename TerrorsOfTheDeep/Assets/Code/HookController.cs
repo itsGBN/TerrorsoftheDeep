@@ -15,7 +15,6 @@ public class HookController : MonoBehaviour
         if (hookState == "caughtFishing")
         {
             hook.GetComponent<SpriteRenderer>().color = Color.black;
-            hook.GetComponent<BoxCollider>().enabled = true;
             hookState = "notFishing";
         }
     }
@@ -43,7 +42,6 @@ public class HookController : MonoBehaviour
         if (hookState == "caughtFishing")
         {
             hook.GetComponent<SpriteRenderer>().color = Color.red;
-            hook.GetComponent<BoxCollider>().enabled = false;
         }
     }
 }
