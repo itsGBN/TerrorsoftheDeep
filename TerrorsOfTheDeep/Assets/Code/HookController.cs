@@ -1,7 +1,6 @@
-using System.Net.Sockets;
 using UnityEngine;
 
-public class FishingController : MonoBehaviour
+public class HookController : MonoBehaviour
 {
     [SerializeField] GameObject hook;
     [SerializeField] public string hookState;
@@ -11,6 +10,13 @@ public class FishingController : MonoBehaviour
         if (hookState == "notFishing")
         {
             hookState = "isFishing"; // set is fiashing to true
+        }
+
+        if (hookState == "caughtFishing")
+        {
+            hook.GetComponent<SpriteRenderer>().color = Color.black;
+            hook.GetComponent<BoxCollider>().enabled = true;
+            hookState = "notFishing";
         }
     }
 
@@ -29,7 +35,7 @@ public class FishingController : MonoBehaviour
             hook.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(1002.95f, mousePosition.y, mousePosition.z));  // If isFishing is true, Make the Hook follow the mouse y position
         }
 
-        if(hookState == "notFishing")
+        if (hookState == "notFishing")
         {
             hook.SetActive(false);
         }
@@ -38,13 +44,6 @@ public class FishingController : MonoBehaviour
         {
             hook.GetComponent<SpriteRenderer>().color = Color.red;
             hook.GetComponent<BoxCollider>().enabled = false;
-
-            if (Vector3.Distance(hook.transform.position, transform.position) < 5f && Input.GetMouseButtonDown(0))
-            {
-                hook.GetComponent<SpriteRenderer>().color = Color.black;
-                hook.GetComponent<BoxCollider>().enabled = true;
-                hookState = "notFishing";
-            }
         }
     }
 }
