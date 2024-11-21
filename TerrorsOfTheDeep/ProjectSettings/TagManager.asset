@@ -6,6 +6,8 @@ TagManager:
   tags:
   - hook
   - boat
+  - Level1to2
+  - Level2to3
   layers:
   - Default
   - TransparentFX

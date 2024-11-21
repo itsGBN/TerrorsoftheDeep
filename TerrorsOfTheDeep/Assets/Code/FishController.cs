@@ -4,7 +4,7 @@ public class FishController : MonoBehaviour
 {
     //Inspector Variables
     [SerializeField] HookController hookController;
-    [SerializeField] GameObject[] fish;
+    [SerializeField] public GameObject[] fish;
 
     //Private Variables
     float randomNum;

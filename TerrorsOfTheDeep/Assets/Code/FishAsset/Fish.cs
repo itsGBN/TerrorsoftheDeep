@@ -17,6 +17,7 @@ public class Fish : MonoBehaviour
     private void Awake()
     {
         hookController = GameObject.FindGameObjectWithTag("boat").GetComponent<HookController>();
+        Destroy(gameObject, 10);
     }
 
     private void FixedUpdate()
@@ -30,8 +31,9 @@ public class Fish : MonoBehaviour
         {
             if (hookController.hookState != "caughtFishing")
             {
-                Destroy(gameObject);
+                hookController.hookFish = fishName;
                 hookController.hookState = "caughtFishing";
+                Destroy(gameObject);
             }
         }
     }

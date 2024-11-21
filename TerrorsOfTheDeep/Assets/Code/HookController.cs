@@ -3,19 +3,34 @@ using UnityEngine;
 public class HookController : MonoBehaviour
 {
     [SerializeField] GameObject hook;
-    [SerializeField] public string hookState;
+    [SerializeField] public string hookState, hookFish;
+
+    FishController fishController;
+    [SerializeField] Sprite hookSprite;
+
+    ReelController reelController;
+    [SerializeField] Transform[] reelPoints;
+
+    private void Awake()
+    {
+        fishController = GetComponent<FishController>();
+        reelController = gameObject.transform.GetChild(0).GetComponent<ReelController>();
+    }
+
 
     private void OnMouseDown()
     {
         if (hookState == "notFishing")
         {
             hookState = "isFishing"; // set is fiashing to true
+            hook.GetComponent<SpriteRenderer>().sprite = hookSprite;
+            reelController.SetReel(reelPoints);
         }
 
         if (hookState == "caughtFishing")
         {
-            hook.GetComponent<SpriteRenderer>().color = Color.black;
             hookState = "notFishing";
+            reelController.ResetReel();
         }
     }
 
@@ -30,7 +45,7 @@ public class HookController : MonoBehaviour
         {
             hook.SetActive(true);
             Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = 59f;
+            mousePosition.z = 49f;
             hook.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(1002.95f, mousePosition.y, mousePosition.z));  // If isFishing is true, Make the Hook follow the mouse y position
         }
 
@@ -41,7 +56,13 @@ public class HookController : MonoBehaviour
 
         if (hookState == "caughtFishing")
         {
-            hook.GetComponent<SpriteRenderer>().color = Color.red;
+            foreach (GameObject fish in fishController.fish)
+            {
+                if(hookFish == fish.GetComponent<Fish>().fishName)
+                {
+                    hook.GetComponent<SpriteRenderer>().sprite = fish.GetComponent<SpriteRenderer>().sprite;
+                }
+            }
         }
     }
 }
