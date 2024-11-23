@@ -29,10 +29,10 @@ public class Fish : MonoBehaviour
     {
         if (other.tag == "hook")
         {
-            if (hookController.hookState != "caughtFishing")
+            if (hookController.hookState == "isFishing")
             {
                 hookController.hookFish = fishName;
-                hookController.hookState = "caughtFishing";
+                hookController.hookState = "gameFishing";
                 Destroy(gameObject);
             }
         }

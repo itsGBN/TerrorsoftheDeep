@@ -9,15 +9,6 @@ public class FishController : MonoBehaviour
     //Private Variables
     float randomNum;
 
-    private void OnParticleTrigger()
-    {
-        if (hookController.hookState != "caughtFishing")
-        {
-            print("Hit");
-            hookController.hookState = "caughtFishing";
-        }
-    }
-
     private void Start()
     {
         InvokeRepeating("SpawnFish", 1, 1f);
