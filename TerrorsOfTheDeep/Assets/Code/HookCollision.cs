@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class HookCollision : MonoBehaviour
 {
-    HookController hookController;
-
-    private void Awake()
-    {
-        hookController = GameObject.FindGameObjectWithTag("boat").GetComponent<HookController>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Level1to2") 

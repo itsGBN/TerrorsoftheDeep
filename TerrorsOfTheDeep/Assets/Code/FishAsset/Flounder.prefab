@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6704374069742688294}
   - component: {fileID: 193506231555681281}
   m_Layer: 0
-  m_Name: Salmon
+  m_Name: Flounder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0cafc7dbf54fd35479a6f458839f2050, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd574ef750306414e81886e37c18f7f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -122,11 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f13437abd26764997a845e5fef9daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishSpeed: 15
-  fishPopulation: 0.354
-  fishName: Salmon
+  fishSpeed: 10
+  fishPopulation: 0.308
+  fishName: Flounder
   fishLength: 16
   fishWeight: 49
   fishComment:
-  - Great on a bagel
+  - Wait, which way is it facing?
   - Salmo Salar

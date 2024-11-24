@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class HookController : MonoBehaviour
@@ -11,8 +12,11 @@ public class HookController : MonoBehaviour
     ReelController reelController;
     [SerializeField] Transform[] reelPoints;
 
+    [SerializeField] TextMeshProUGUI fishDescription;
+
     bool isBarBlocked;
-    public int barBlockedNum;
+    int barBlockedNum, fishCounterNum;
+    Fish fishBio;
 
     private void Awake()
     {
@@ -35,6 +39,7 @@ public class HookController : MonoBehaviour
     private void Update()
     {
         HookMovment();
+
     }
 
     private void HookMovment()
@@ -59,6 +64,7 @@ public class HookController : MonoBehaviour
                 if(hookFish == fish.GetComponent<Fish>().fishName)
                 {
                     hook.GetComponent<SpriteRenderer>().sprite = fish.GetComponent<SpriteRenderer>().sprite;
+                    fishBio = fish.GetComponent<Fish>();
                 }
             }
 
@@ -120,9 +126,18 @@ public class HookController : MonoBehaviour
             }
             else
             {
+                int comment = Random.Range(0, fishBio.fishComment.Length);
+                fishDescription.text = fishBio.fishComment[comment];
+                Invoke("ResetText", 3);
                 hookState = "notFishing";
                 reelController.ResetReel();
+                fishCounterNum++;
             }
         }
+    }
+
+    private void ResetText()
+    {
+        fishDescription.text = "";
     }
 }
