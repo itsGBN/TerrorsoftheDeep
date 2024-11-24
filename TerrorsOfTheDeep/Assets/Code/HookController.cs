@@ -14,6 +14,8 @@ public class HookController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI fishDescription;
 
+    [SerializeField] GlitchManager glitchManager;
+
     bool isBarBlocked;
     int barBlockedNum, fishCounterNum;
     Fish fishBio;
@@ -60,6 +62,14 @@ public class HookController : MonoBehaviour
 
         if (hookState == "gameFishing")
         {
+
+            if(fishCounterNum > 3)
+            {
+                glitchManager.canGlitch = true;
+                fishCounterNum--;
+            }
+
+
             foreach (GameObject fish in fishController.fish)
             {
                 if(hookFish == fish.GetComponent<Fish>().fishName)
@@ -136,6 +146,7 @@ public class HookController : MonoBehaviour
                 hookState = "notFishing";
                 reelController.ResetReel();
                 fishCounterNum++;
+                glitchManager.canGlitch = false;
             }
         }
     }
