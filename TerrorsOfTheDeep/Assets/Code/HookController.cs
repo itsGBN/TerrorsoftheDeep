@@ -33,6 +33,7 @@ public class HookController : MonoBehaviour
             hookState = "isFishing"; // set is fiashing to true
             hook.GetComponent<SpriteRenderer>().sprite = hookSprite;
             reelController.SetReel(reelPoints);
+            AudioManager.instance.fishHookLaunch();
         }
     }
 
@@ -123,9 +124,12 @@ public class HookController : MonoBehaviour
             if (Vector2.Distance(hook.transform.position, transform.GetChild(0).position) > 3)
             {
                 hook.transform.position = Vector3.MoveTowards(hook.transform.position, transform.GetChild(0).position, 20 * Time.deltaTime);
+                AudioManager.instance.fishReel();
             }
             else
             {
+                AudioManager.instance.fishAddPoint();
+                AudioManager.instance.fishReelStop();
                 int comment = Random.Range(0, fishBio.fishComment.Length);
                 fishDescription.text = fishBio.fishComment[comment];
                 Invoke("ResetText", 3);

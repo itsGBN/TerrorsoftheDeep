@@ -31,6 +31,7 @@ public class Fish : MonoBehaviour
         {
             if (hookController.hookState == "isFishing")
             {
+                AudioManager.instance.fishCaught();
                 hookController.hookFish = fishName;
                 hookController.hookState = "gameFishing";
                 Destroy(gameObject);
