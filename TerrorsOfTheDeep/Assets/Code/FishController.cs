@@ -21,7 +21,7 @@ public class FishController : MonoBehaviour
             randomNum = UnityEngine.Random.Range(0, 1f);
             if(randomNum < fish.GetComponent<Fish>().fishPopulation)
             {
-                Instantiate(fish, new Vector3(-63, UnityEngine.Random.Range(-30, 12), 49), Quaternion.identity);
+                Instantiate(fish, new Vector3(-63, UnityEngine.Random.Range(-25, 12), 49), Quaternion.identity);
             }
         }
     }

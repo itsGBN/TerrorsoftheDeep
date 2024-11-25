@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SurveyController : MonoBehaviour
 {
+    [SerializeField] HookController hookController;
     [SerializeField] GameObject survey1, survey2, survey3, nextPageButton;
     GameObject currentSurvey;
     int surveyTarget = 0;
@@ -18,7 +19,7 @@ public class SurveyController : MonoBehaviour
     {
         if(canMove)
         {
-            currentSurvey.transform.position = Vector3.Lerp(currentSurvey.transform.position, new Vector3(surveyTarget, currentSurvey.transform.position.y, currentSurvey.transform.position.z), 1.5f * Time.deltaTime);
+            currentSurvey.transform.position = Vector3.MoveTowards(currentSurvey.transform.position, new Vector3(surveyTarget, currentSurvey.transform.position.y, currentSurvey.transform.position.z), 60f * Time.deltaTime);
             if(currentSurvey.transform.position == new Vector3(surveyTarget, currentSurvey.transform.position.x, currentSurvey.transform.position.y))
             {
                 canMove = false;
@@ -43,6 +44,9 @@ public class SurveyController : MonoBehaviour
         currentSurvey.SetActive(false);
         currentSurvey.transform.parent.transform.GetChild(0).gameObject.SetActive(false);
         currentSurvey.transform.parent.transform.GetChild(1).gameObject.SetActive(false);
+        AudioManager.instance.MusicOne();
+        AudioManager.instance.AmbieneceOne();
+        hookController.canLevel2 = true;
     }
 
     public void OpenSurvey1()

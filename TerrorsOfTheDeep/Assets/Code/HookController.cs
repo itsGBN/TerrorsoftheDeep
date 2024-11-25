@@ -15,9 +15,13 @@ public class HookController : MonoBehaviour
     [SerializeField] TextMeshProUGUI fishDescription;
 
     [SerializeField] GlitchManager glitchManager;
+    [SerializeField] SurveyController surveyController;
+
+    public bool canLevel2, canLevel3;
 
     bool isBarBlocked;
-    int barBlockedNum, fishCounterNum;
+    int barBlockedNum;
+    public int fishCounterNum;
     Fish fishBio;
 
     private void Awake()
@@ -58,14 +62,23 @@ public class HookController : MonoBehaviour
         if (hookState == "notFishing")
         {
             hook.SetActive(false);
+            
+            if (glitchManager.canGlitch)
+            {
+                fishCounterNum = 100;
+                surveyController.OpenSurvey1();
+                glitchManager.canGlitch = false;
+            }
         }
 
         if (hookState == "gameFishing")
         {
 
-            if(fishCounterNum > 3)
+            if(fishCounterNum == 2)
             {
                 glitchManager.canGlitch = true;
+                AudioManager.instance.MusicOneStop();
+                AudioManager.instance.AmbienceOneStop();
                 fishCounterNum--;
             }
 
@@ -146,7 +159,6 @@ public class HookController : MonoBehaviour
                 hookState = "notFishing";
                 reelController.ResetReel();
                 fishCounterNum++;
-                glitchManager.canGlitch = false;
             }
         }
     }

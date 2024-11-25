@@ -28,7 +28,7 @@ public class GlitchManager : MonoBehaviour
     {
         if(canGlitch)
         {
-            glitchTime = Random.Range(0, 4);
+            glitchTime = Random.Range(0, 3);
 
             if (glitchTime == 0)
             {
