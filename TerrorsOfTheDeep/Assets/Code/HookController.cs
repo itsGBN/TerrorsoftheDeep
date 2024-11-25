@@ -74,7 +74,7 @@ public class HookController : MonoBehaviour
         if (hookState == "gameFishing")
         {
 
-            if(fishCounterNum == 2)
+            if(fishCounterNum == 10)
             {
                 glitchManager.canGlitch = true;
                 AudioManager.instance.MusicOneStop();
@@ -125,7 +125,7 @@ public class HookController : MonoBehaviour
                 {
                     barBlockedNum++;
                 }
-                if (barBlockedNum == 10)
+                if (barBlockedNum == 5)
                 {
                     hookMiniGame.transform.GetChild(0).transform.localScale += new Vector3(0, 0.2f, 0);
                     barBlockedNum = 0;
