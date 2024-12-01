@@ -45,12 +45,15 @@ namespace JustFish
                 case FishingState.caughtfishing: // When fishing
                     mousePosition.z = 10f; // Initialize the mouse position of the z axis
                     transform.position = Camera.main.ScreenToWorldPoint(new Vector3(915f, mousePosition.y, mousePosition.z));  // Make the Hook follow the mouse y position
+                    AudioManager.instance.fishReel();
                     MoveReel(); // Use the Move Reel method
                     if(transform.position.y > 2 && Input.GetMouseButton(0))
                     {
                         hookRenderer.sprite = hookSprite;
                         fishermenLines.text = fishermanComment;
                         if(!IsInvoking("SetText")) { Invoke("SetText", 1.5f); }
+                        AudioManager.instance.fishReelStop();
+                        AudioManager.instance.fishAddPoint();
                         fishingState = FishingState.isfishing;
                     }
                     break; // Break
@@ -91,6 +94,7 @@ namespace JustFish
                 hookRenderer.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
                 fishermanComment = other.gameObject.GetComponent<FishBehavior>().comment;
                 fishingState = FishingState.caughtfishing;
+                AudioManager.instance.fishHookLaunch();
                 ProgressManager.instance.IncreaseProgress();
                 Destroy(other.gameObject);
             }
