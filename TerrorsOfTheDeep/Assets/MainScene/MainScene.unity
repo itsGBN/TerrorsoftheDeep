@@ -8677,6 +8677,7 @@ MonoBehaviour:
   fish:
   - {fileID: 11400000, guid: 612ea4938bf46a748a7f5ae8776f12fe, type: 2}
   - {fileID: 11400000, guid: 0d79d2f82802b9d4290d31770fa9538c, type: 2}
+  - {fileID: 11400000, guid: 3bd219ed150345a4cb2a9331e99acbd4, type: 2}
   fishPrefab: {fileID: 7791053661742385582, guid: 7d8a8d7f52b2e854ea8d5f8728230998, type: 3}
 --- !u!1 &1750684918
 GameObject:
