@@ -4,7 +4,7 @@ namespace JustFish
 {
     public class ProgressManager : MonoBehaviour
     {
-        public bool glitchSprite, glitchDialogue, glitchBox;
+        public bool glitchSprite, glitchDialogue, glitchBox, glitchSurvey;
         public int progressNum;
         public static ProgressManager instance;
 
@@ -67,6 +67,15 @@ namespace JustFish
             }
         }
 
+        
+        public void GlitchBox()
+        {
+            if (glitchBox && fishhookManager.fishingState == FishingState.caughtfishing)
+            {
+                fishhookManager.fishermanComment = "!...Great on a body!@@1..";
+                ResetGlitch();
+            }
+        }
     }
 
 }
