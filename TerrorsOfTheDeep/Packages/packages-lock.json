@@ -371,6 +371,31 @@
       },
       "url": "https://packages.unity.com"
     },
+    "jp.keijiro.kino.aqua": {
+      "version": "3.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "14.0.0"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.kino.feedback": {
+      "version": "1.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.kino.post-processing.hatch": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.high-definition": "7.3.1"
+      },
+      "url": "https://registry.npmjs.com"
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,

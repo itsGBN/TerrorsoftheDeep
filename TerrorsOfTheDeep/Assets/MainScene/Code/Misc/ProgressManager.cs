@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 namespace JustFish
 {
@@ -12,16 +15,31 @@ namespace JustFish
 
         public FishhookManager fishhookManager;
 
+        public GameObject theBox;
+        int boxNum = 5;
+
+        public Volume volume;
+        VolumeProfile profile;
+        LensDistortion lensDistortion;
+        
+
         private void Awake()
         {
             if (instance == null) { instance = this; }
             else if (instance != this) { Destroy(this); }
         }
 
+        private void Start()
+        {
+            profile = volume.sharedProfile;
+            if (volume.profile.TryGet<LensDistortion>(out var tmp)) { lensDistortion = tmp; }
+        }
+
         private void Update()
         {
             GlitchSprite();
             GlitchDialgue();
+            GlitchBox();
         }
 
         public void IncreaseProgress()
@@ -29,14 +47,14 @@ namespace JustFish
             progressNum++;
             switch (progressNum)
             {
-                case 5:
+                case 1:
                     glitchSprite = true;
                     break;
-                case 6:
+                case 2:
                     glitchDialogue = true;
                     break;
-                case 7:
-                    fishhookManager.fishingState = FishingState.notfishing; 
+                case 3:
+                    glitchBox = true;
                     break;
             }
         }
@@ -72,8 +90,23 @@ namespace JustFish
         {
             if (glitchBox && fishhookManager.fishingState == FishingState.caughtfishing)
             {
-                fishhookManager.fishermanComment = "!...Great on a body!@@1..";
-                ResetGlitch();
+                for (int i = 0; i < 20; i++)
+                {
+                    GameObject box = Instantiate(theBox, new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-1, 3), -5), Quaternion.identity);
+                    box.transform.localScale = new Vector2(Random.Range(0.1f, 0.5f), Random.Range(0.2f, 0.8f));
+                    Destroy(box, 0.5f);
+                }
+
+                if (boxNum == 0)
+                {
+                    ResetGlitch();
+                }
+                else
+                {
+                    boxNum--;
+                    Invoke("GlitchBox", 1);
+                    print("Hello");
+                }
             }
         }
     }

@@ -96,7 +96,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   center:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   scale:
     m_OverrideState: 1
@@ -118,6 +118,8 @@ MonoBehaviour:
   - {fileID: -9198370328901031224}
   - {fileID: 2110197895633386916}
   - {fileID: 1648559464401746354}
+  - {fileID: 6902409129715935775}
+  - {fileID: 3682524493675809032}
 --- !u!114 &1648559464401746354
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -162,3 +164,56 @@ MonoBehaviour:
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+--- !u!114 &3682524493675809032
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e2d32e2c7b0c418e030c3236d663a, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  quality:
+    m_OverrideState: 1
+    m_Value: 3
+  spectralLut:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
+  m_MaxSamples:
+    m_OverrideState: 1
+    m_Value: 24
+--- !u!114 &6902409129715935775
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19b22d43cd15bd619a338f451a72094, type: 3}
+  m_Name: Hatch
+  m_EditorClassIdentifier: 
+  active: 1
+  repeat:
+    m_OverrideState: 1
+    m_Value: 186
+  waviness:
+    m_OverrideState: 1
+    m_Value: 0
+  displacement:
+    m_OverrideState: 1
+    m_Value: 0
+  thickness:
+    m_OverrideState: 1
+    m_Value: 1
+  opacity:
+    m_OverrideState: 1
+    m_Value: 0.198
