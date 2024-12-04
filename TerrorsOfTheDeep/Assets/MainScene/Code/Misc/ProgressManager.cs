@@ -25,6 +25,9 @@ namespace JustFish
         public Volume volume;
         VolumeProfile profile;
         LensDistortion lensDistortion;
+
+        public SpriteRenderer background;
+        public Sprite[] backgroundswitch;
         
 
         private void Awake()
@@ -44,6 +47,7 @@ namespace JustFish
             GlitchSprite();
             GlitchDialgue();
             GlitchBox();
+            GlitchSurvey();
         }
 
         public void IncreaseProgress()
@@ -70,6 +74,7 @@ namespace JustFish
             glitchSprite = false;
             glitchDialogue = false;
             glitchBox = false;
+            glitchSurvey = false;
         }
 
         public void GlitchSprite()
@@ -118,11 +123,37 @@ namespace JustFish
 
         public void GlitchSurvey()
         {
-            if (glitchSurvey)
+            if (glitchSurvey && glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().getIsAnswered() == false)
             {
                 glitchQuestions[questionIterator].SetActive(true);
                 glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
+                glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().setIsAnswered();
+                questionIterator++;
                 ResetGlitch();
+            }
+        }
+
+        public void GlitchSurveyRec()
+        {
+            if(glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().getIsAnswered() == false)
+            {
+                glitchQuestions[questionIterator].SetActive(true);
+                glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
+                glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().setIsAnswered();
+                glitchQuestions[questionIterator-1].SetActive(false);
+                questionIterator++;
+                StartCoroutine(GlitchBackground());
+            }
+        }
+
+        public IEnumerator GlitchBackground()
+        {
+            AudioManager.instance.Glitch3();
+            for (int i = 0; i < 6; i++)
+            {
+                if(background.sprite == backgroundswitch[0] ) { background.sprite = backgroundswitch[1];}
+                else { background.sprite = backgroundswitch[0];}
+                yield return new WaitForSeconds(0.05f);
             }
         }
     }
