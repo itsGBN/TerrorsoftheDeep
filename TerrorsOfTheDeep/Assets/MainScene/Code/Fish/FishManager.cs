@@ -6,7 +6,7 @@ namespace JustFish
 {
     public class FishManager : MonoBehaviour
     {
-        public FishSO[] fish;
+        public FishSO[] fish;   
         float fishPopulationNum;
         string fishComment;
 
@@ -32,6 +32,7 @@ namespace JustFish
                     Instantiate(fishPrefab, new Vector3(-5, Random.Range(-0.7f, 1f), 0), Quaternion.identity);
                     fishRenderer = fishPrefab.GetComponent<SpriteRenderer>();
                     fishBehavior = fishPrefab.GetComponent<FishBehavior>();
+                    fishBehavior.namer = fish.name;
                     fishBehavior.lifeTime = fish.fishLifeTime;
                     fishRenderer.sprite = fish.fishSprite;
                     fishBehavior.speed = fish.fishSpeed;

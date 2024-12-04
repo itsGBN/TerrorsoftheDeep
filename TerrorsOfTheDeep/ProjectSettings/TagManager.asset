@@ -4,11 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - hook
-  - boat
-  - Level1to2
-  - Level2to3
   - Fish
+  - Squid
+  - Cuttlefish
   layers:
   - Default
   - TransparentFX

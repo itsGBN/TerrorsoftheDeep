@@ -104,6 +104,7 @@ MonoBehaviour:
   speed: 1.5
   lifeTime: 10
   comment: Salmo Salar
+  namer: Salmon
 --- !u!65 &3150004885398272896
 BoxCollider:
   m_ObjectHideFlags: 0
