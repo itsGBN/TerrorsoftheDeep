@@ -8,7 +8,7 @@ namespace JustFish
 {
     public class ProgressManager : MonoBehaviour
     {
-        public bool glitchSprite, glitchDialogue, glitchBox, glitchSurvey;
+        public bool glitchSurvey;
         public int progressNum;
         public static ProgressManager instance;
 
@@ -20,15 +20,17 @@ namespace JustFish
         public FishhookManager fishhookManager;
 
         public GameObject theBox;
-        int boxNum = 3, boxColor;
+        int boxColor;
 
         public Volume volume;
-        VolumeProfile profile;
-        LensDistortion lensDistortion;
 
         public SpriteRenderer background;
         public Sprite[] backgroundswitch;
-        
+
+        public GameObject glitchHorror;
+        public Animator glitchHorrorAnim;
+
+        public FishManager fishManager;
 
         private void Awake()
         {
@@ -38,77 +40,78 @@ namespace JustFish
 
         private void Start()
         {
-            profile = volume.sharedProfile;
-            if (volume.profile.TryGet<LensDistortion>(out var tmp)) { lensDistortion = tmp; }
+
         }
 
         private void Update()
         {
-            GlitchSprite();
-            GlitchDialgue();
-            GlitchBox();
             GlitchSurvey();
         }
 
         public void IncreaseProgress()
         {
-            progressNum++;
-            switch (progressNum)
+            if (GameObject.FindGameObjectsWithTag("ProgressObject").Length != 1)
             {
-                case 1:
-                    glitchSprite = true;
-                    break;
-                case 2:
-                    glitchSurvey = true;
-                    fishhookManager.fishingState = FishingState.notfishing;
-                    break;
-                case 3:
-                    boxNum = 40;
-                    glitchBox = true;
-                    break;
+                progressNum++;
+                switch (progressNum)
+                {
+                    case 5:
+                        GlitchSprite(Random.Range(0, glitchSprites.Length));
+                        break;
+                    case 10:
+                        GlitchDialgue("----Dead--mxwacbi");
+                        break;
+                    case 12:
+                        GlitchBox(40);
+                        break;
+                    case 15:
+                        fishManager.ProgressSpawner(0);
+                        GlitchSprite(Random.Range(0, glitchSprites.Length));
+                        break;
+                    case 20:
+                        GlitchHorror("TheManAnim");
+                        fishManager.ProgressSpawner(0);
+                        break;
+                }
             }
         }
 
         public void ResetGlitch()
         {
-            glitchSprite = false;
-            glitchDialogue = false;
-            glitchBox = false;
             glitchSurvey = false;
         }
 
-        public void GlitchSprite()
+        public void GlitchSprite(int num)
         {
-            if (glitchSprite && fishhookManager.fishingState == FishingState.caughtfishing)
+            if (fishhookManager.fishingState == FishingState.caughtfishing)
             {
-                int fishGlitchNum = Random.Range(0, glitchSprites.Length);
-                fishhookManager.gameObject.GetComponent<SpriteRenderer>().sprite = glitchSprites[fishGlitchNum];
+                fishhookManager.gameObject.GetComponent<SpriteRenderer>().sprite = glitchSprites[num];
                 ResetGlitch();
             }
         }
 
-        public void GlitchDialgue()
+        public void GlitchDialgue(string dialogue)
         {
-            if (glitchDialogue && fishhookManager.fishingState == FishingState.caughtfishing)
+            if (fishhookManager.fishingState == FishingState.caughtfishing)
             {
-                fishhookManager.fishermanComment = "!...Great on a body!@@1..";
+                fishhookManager.fishermanComment = dialogue;
                 ResetGlitch();
             }
         }
 
-        public void GlitchBox()
+        public void GlitchBox(int boxnum)
         {
-            if (glitchBox && fishhookManager.fishingState == FishingState.caughtfishing)
+            if (fishhookManager.fishingState == FishingState.caughtfishing)
             {
-                StartCoroutine(GlitchBoxRec());
+                StartCoroutine(GlitchBoxRec(boxnum));
                 ResetGlitch();
             }
         }
 
-        public IEnumerator GlitchBoxRec()
+        public IEnumerator GlitchBoxRec(int boxnum)
         {
             AudioManager.instance.Glitch3();
-            for (int i = 0; i < boxNum; i++)
+            for (int i = 0; i < boxnum; i++)
             {
                 GameObject box = Instantiate(theBox, new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5), Quaternion.identity);
                 boxColor = Random.Range(0, 4);
@@ -123,38 +126,49 @@ namespace JustFish
 
         public void GlitchSurvey()
         {
-            if (glitchSurvey && glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().getIsAnswered() == false)
+            if (glitchSurvey && fishhookManager.fishingState == FishingState.isfishing)
             {
                 glitchQuestions[questionIterator].SetActive(true);
                 glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
-                glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().setIsAnswered();
                 questionIterator++;
+                fishhookManager.fishingState = FishingState.notfishing;
                 ResetGlitch();
             }
         }
 
         public void GlitchSurveyRec()
         {
-            if(glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().getIsAnswered() == false)
-            {
-                glitchQuestions[questionIterator].SetActive(true);
-                glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
-                glitchQuestions[questionIterator].GetComponent<SurveyBehavior>().setIsAnswered();
-                glitchQuestions[questionIterator-1].SetActive(false);
-                questionIterator++;
-                StartCoroutine(GlitchBackground());
-            }
+            glitchQuestions[questionIterator].SetActive(true);
+            glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
+            glitchQuestions[questionIterator - 1].SetActive(false);
+            questionIterator++;
+            StartCoroutine(GlitchBackground(6));
         }
 
-        public IEnumerator GlitchBackground()
+        public void GlitchSurveyClose()
+        {
+            glitchQuestions[questionIterator-1].SetActive(false);
+            fishhookManager.fishingState = FishingState.isfishing;
+            fishhookManager.SetReel(fishhookManager.reelAnchors);
+            StartCoroutine(GlitchBackground(7));   
+        }
+
+        public IEnumerator GlitchBackground(int num)
         {
             AudioManager.instance.Glitch3();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < num; i++)
             {
                 if(background.sprite == backgroundswitch[0] ) { background.sprite = backgroundswitch[1];}
                 else { background.sprite = backgroundswitch[0];}
                 yield return new WaitForSeconds(0.05f);
             }
+        }
+
+        public void GlitchHorror(string stateAnim)
+        {
+            glitchHorror.SetActive(true);
+            glitchHorrorAnim.Play(stateAnim);
+            ResetGlitch();
         }
     }
 

@@ -47,7 +47,7 @@ namespace JustFish
                     transform.position = Camera.main.ScreenToWorldPoint(new Vector3(915f, mousePosition.y, mousePosition.z));  // Make the Hook follow the mouse y position
                     AudioManager.instance.fishReel();
                     MoveReel(); // Use the Move Reel method
-                    if(transform.position.y > 2 && Input.GetMouseButton(0))
+                    if(transform.position.y > 2)
                     {
                         hookRenderer.sprite = hookSprite;
                         fishermenLines.text = fishermanComment;
@@ -89,7 +89,7 @@ namespace JustFish
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.tag == "Fish" && fishingState == FishingState.isfishing) // When collided with the Fish tag
+            if((other.tag == "Fish" || other.tag == "ProgressObject") && fishingState == FishingState.isfishing) // When collided with the Fish tag
             {
                 hookRenderer.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
                 fishermanComment = other.gameObject.GetComponent<FishBehavior>().comment;
@@ -97,6 +97,13 @@ namespace JustFish
                 AudioManager.instance.fishHookLaunch();
                 ProgressManager.instance.IncreaseProgress();
                 Destroy(other.gameObject);
+            }
+
+            if ((other.tag == "Squid" && fishingState == FishingState.caughtfishing) && GameObject.FindGameObjectsWithTag("ProgressObject").Length != 1) // When collided with the Fish tag
+            {
+                hookRenderer.sprite = hookSprite;
+                AudioManager.instance.fishReelStop();
+                fishingState = FishingState.isfishing;
             }
         }
     }

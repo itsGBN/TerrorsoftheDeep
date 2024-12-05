@@ -5,7 +5,6 @@ namespace JustFish
 {
     public class SurveyBehavior : MonoBehaviour
     {
-        bool isAnswerer { get; set; }
 
         private void OnMouseDrag()
         {
@@ -17,16 +16,6 @@ namespace JustFish
         private void OnMouseDown()
         {
             print("Hello");
-        }
-
-        public void setIsAnswered()
-        {
-            isAnswerer = true;
-        }
-
-        public bool getIsAnswered()
-        {
-            return isAnswerer;
         }
     }
 }
