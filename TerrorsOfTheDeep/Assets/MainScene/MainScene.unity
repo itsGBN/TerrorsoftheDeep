@@ -24271,6 +24271,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0d79d2f82802b9d4290d31770fa9538c, type: 2}
   - {fileID: 11400000, guid: 3bd219ed150345a4cb2a9331e99acbd4, type: 2}
   - {fileID: 11400000, guid: 4d292df3597bcde458d9d96634862b89, type: 2}
+  - {fileID: 11400000, guid: a54849beb8ca18f40b89e33a47ce8056, type: 2}
   fish2:
   - {fileID: 11400000, guid: 3cd1ba1c55e1f7f4884666334afcec85, type: 2}
   - {fileID: 11400000, guid: 8a9e3d391cce18b48bdb119e5129b6f6, type: 2}
@@ -25345,7 +25346,7 @@ MonoBehaviour:
     to play the game without restarting will result in unintended consequences. RESTART
     the game to avoid any further risks.
 
-    
+
 
 '
   m_isRightToLeft: 0

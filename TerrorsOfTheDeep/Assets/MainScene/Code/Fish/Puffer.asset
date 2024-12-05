@@ -18,5 +18,4 @@ MonoBehaviour:
   fishName: Puffer
   fishSprite: {fileID: 21300000, guid: 19effdcf62d03a440a568e7f5248cb88, type: 3}
   fishComment:
-  - Great on Cheese
-  - Puffo Palar
+  - Maybe it's better to leave this one out of the touch tank.

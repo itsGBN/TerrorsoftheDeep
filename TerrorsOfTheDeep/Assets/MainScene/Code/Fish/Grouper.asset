@@ -18,5 +18,4 @@ MonoBehaviour:
   fishName: Grouper
   fishSprite: {fileID: 21300000, guid: 8ab0562906d93774a86122aee2873029, type: 3}
   fishComment:
-  - Great with mustard
-  - Groupo Galar
+  - Now a by-itself-er.
