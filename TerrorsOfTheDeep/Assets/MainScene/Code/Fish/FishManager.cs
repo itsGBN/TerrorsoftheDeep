@@ -9,6 +9,7 @@ namespace JustFish
         public FishSO[] fish;
         public FishSO[] fish2;
         public FishSO[] progressObj;
+        public bool wave1 = true;
         float fishPopulationNum;
         string fishComment;
 
@@ -20,50 +21,56 @@ namespace JustFish
         void Start()
         {
             StartCoroutine(FishSpawner());
+            wave1 = true;
         }
 
         public IEnumerator FishSpawner()
         {
             yield return new WaitForSeconds(1f);       
-            foreach (var fish in fish)
-            {
-                fishPopulationNum = Random.Range(0, 1f);
-                if (fishPopulationNum < fish.fishPopulation)
-                {
-                    Instantiate(fishPrefab, new Vector3(-5, Random.Range(-0.7f, 1f), 0), Quaternion.identity);
-                    fishRenderer = fishPrefab.GetComponent<SpriteRenderer>();
-                    fishBehavior = fishPrefab.GetComponent<FishBehavior>();
-                    fishBehavior.namer = fish.name;
-                    fishBehavior.lifeTime = fish.fishLifeTime;
-                    fishRenderer.sprite = fish.fishSprite;
-                    fishBehavior.speed = fish.fishSpeed;
-                    randomFishCommentNum = Random.Range(0, fish.fishComment.Length);
-                    fishBehavior.comment = fish.fishComment[randomFishCommentNum];
-                }
-            }
-            yield return StartCoroutine(FishSpawner());  
-        }
 
-        public IEnumerator Fish2Spawner()
-        {
-            yield return new WaitForSeconds(1f);
-            foreach (var fish in fish2)
+            if(wave1)
             {
-                fishPopulationNum = Random.Range(0, 1f);
-                if (fishPopulationNum < fish.fishPopulation)
+                foreach (var fish in fish)
                 {
-                    Instantiate(fishPrefab, new Vector3(-5, Random.Range(-0.7f, 1f), 0), Quaternion.identity);
-                    fishRenderer = fishPrefab.GetComponent<SpriteRenderer>();
-                    fishBehavior = fishPrefab.GetComponent<FishBehavior>();
-                    fishBehavior.namer = fish.name;
-                    fishBehavior.lifeTime = fish.fishLifeTime;
-                    fishRenderer.sprite = fish.fishSprite;
-                    fishBehavior.speed = fish.fishSpeed;
-                    randomFishCommentNum = Random.Range(0, fish.fishComment.Length);
-                    fishBehavior.comment = fish.fishComment[randomFishCommentNum];
+                    fishPopulationNum = Random.Range(0, 1f);
+                    if (fishPopulationNum < fish.fishPopulation)
+                    {
+                        Instantiate(fishPrefab, new Vector3(-5, Random.Range(-0.7f, 1f), 0), Quaternion.identity);
+                        fishRenderer = fishPrefab.GetComponent<SpriteRenderer>();
+                        fishBehavior = fishPrefab.GetComponent<FishBehavior>();
+                        fishBehavior.namer = fish.name;
+                        fishBehavior.lifeTime = fish.fishLifeTime;
+                        fishRenderer.sprite = fish.fishSprite;
+                        fishBehavior.speed = fish.fishSpeed;
+                        randomFishCommentNum = Random.Range(0, fish.fishComment.Length);
+                        fishBehavior.comment = fish.fishComment[randomFishCommentNum];
+                        yield return new WaitForSeconds(0.5f);
+                    }
                 }
             }
-            yield return StartCoroutine(Fish2Spawner());
+
+            else
+            {
+                foreach (var fish in fish2)
+                {
+                    fishPopulationNum = Random.Range(0, 1f);
+                    if (fishPopulationNum < fish.fishPopulation)
+                    {
+                        Instantiate(fishPrefab, new Vector3(-5, Random.Range(-0.7f, 1f), 0), Quaternion.identity);
+                        fishRenderer = fishPrefab.GetComponent<SpriteRenderer>();
+                        fishBehavior = fishPrefab.GetComponent<FishBehavior>();
+                        fishBehavior.namer = fish.name;
+                        fishBehavior.lifeTime = fish.fishLifeTime;
+                        fishRenderer.sprite = fish.fishSprite;
+                        fishBehavior.speed = fish.fishSpeed;
+                        randomFishCommentNum = Random.Range(0, fish.fishComment.Length);
+                        fishBehavior.comment = fish.fishComment[randomFishCommentNum];
+                        yield return new WaitForSeconds(0.5f);
+                    }
+                }
+            }
+
+            yield return StartCoroutine(FishSpawner());
         }
 
         public void ProgressSpawner(int num)

@@ -97,6 +97,12 @@ namespace JustFish
                 AudioManager.instance.fishHookLaunch();
                 ProgressManager.instance.IncreaseProgress();
                 Destroy(other.gameObject);
+                if(other.GetComponent<FishBehavior>().namer == "Arm")
+                {
+                    ProgressManager.instance.glitchSurvey = true;
+                    print(ProgressManager.instance.glitchSurvey);
+                    ProgressManager.instance.GlitchHorror("TheManAnim");
+                }
             }
 
             if ((other.tag == "Squid" && fishingState == FishingState.caughtfishing) && GameObject.FindGameObjectsWithTag("ProgressObject").Length != 1) // When collided with the Fish tag

@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 namespace JustFish
 {
@@ -13,6 +11,7 @@ namespace JustFish
         public static ProgressManager instance;
 
         public Sprite[] glitchSprites;
+        public GameObject distortedFish;
 
         public GameObject[] glitchQuestions;
         int questionIterator;
@@ -65,12 +64,14 @@ namespace JustFish
                         GlitchBox(40);
                         break;
                     case 15:
-                        fishManager.ProgressSpawner(0);
                         GlitchSprite(Random.Range(0, glitchSprites.Length));
                         break;
                     case 20:
-                        GlitchHorror("TheManAnim");
+                        GlitchHorror("CreepyFishAnim");
                         fishManager.ProgressSpawner(0);
+                        break;
+                    case 30:
+                        fishManager.ProgressSpawner(1);
                         break;
                 }
             }
@@ -79,14 +80,17 @@ namespace JustFish
         public void ResetGlitch()
         {
             glitchSurvey = false;
+            distortedFish.SetActive(false);
         }
 
         public void GlitchSprite(int num)
         {
             if (fishhookManager.fishingState == FishingState.caughtfishing)
             {
+                AudioManager.instance.Glitch2();
                 fishhookManager.gameObject.GetComponent<SpriteRenderer>().sprite = glitchSprites[num];
-                ResetGlitch();
+                distortedFish.SetActive(true);
+                Invoke("ResetGlitch", 0.4f);
             }
         }
 
@@ -128,6 +132,7 @@ namespace JustFish
         {
             if (glitchSurvey && fishhookManager.fishingState == FishingState.isfishing)
             {
+                AudioManager.instance.MusicOneStop();
                 glitchQuestions[questionIterator].SetActive(true);
                 glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
                 questionIterator++;
@@ -150,7 +155,8 @@ namespace JustFish
             glitchQuestions[questionIterator-1].SetActive(false);
             fishhookManager.fishingState = FishingState.isfishing;
             fishhookManager.SetReel(fishhookManager.reelAnchors);
-            StartCoroutine(GlitchBackground(7));   
+            StartCoroutine(GlitchBackground(7));
+            fishManager.wave1 = false;
         }
 
         public IEnumerator GlitchBackground(int num)
@@ -167,8 +173,8 @@ namespace JustFish
         public void GlitchHorror(string stateAnim)
         {
             glitchHorror.SetActive(true);
+            AudioManager.instance.Glitch1();
             glitchHorrorAnim.Play(stateAnim);
-            ResetGlitch();
         }
     }
 

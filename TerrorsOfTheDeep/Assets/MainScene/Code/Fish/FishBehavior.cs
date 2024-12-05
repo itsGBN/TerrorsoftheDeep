@@ -15,7 +15,7 @@ namespace JustFish
             {
                 gameObject.tag = "Squid";
             }
-            Invoke("SetProgress", 1);
+            Invoke("SetProgress", 0.1f);
         }
 
         void FixedUpdate()
@@ -38,7 +38,7 @@ namespace JustFish
 
         public void SetProgress()
         {
-            if (namer != "3D")
+            if (namer != "Newspaper" && namer != "Arm")
             {
                 Destroy(gameObject, lifeTime);
             }

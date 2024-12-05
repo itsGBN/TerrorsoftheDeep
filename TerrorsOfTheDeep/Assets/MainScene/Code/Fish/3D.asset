@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishSpeed: 1.5
   fishLifeTime: 10
-  fishPopulation: 0.285
+  fishPopulation: 0.126
   fishName: 3D
   fishSprite: {fileID: 21300000, guid: edbddd7d18216e142bd8a165bea98cd6, type: 3}
   fishComment:
