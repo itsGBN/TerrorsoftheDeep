@@ -58,7 +58,7 @@ namespace JustFish
                         GlitchSprite(Random.Range(0, glitchSprites.Length));
                         break;
                     case 10:
-                        GlitchDialgue("----Dead--mxwacbi");
+                        GlitchDialgue("We’re so happy you joined us!");
                         break;
                     case 12:
                         GlitchBox(40);
@@ -66,12 +66,33 @@ namespace JustFish
                     case 15:
                         GlitchSprite(Random.Range(0, glitchSprites.Length));
                         break;
+                    case 17:
+                        GlitchDialgue("----Dead--mxwacbi");
+                        break;
                     case 20:
                         GlitchHorror("CreepyFishAnim");
                         fishManager.ProgressSpawner(0);
                         break;
+                    case 23:
+                        GlitchDialgue("He’s happier with us. So much happier.");
+                        break;
+                    case 27:
+                        GlitchSprite(Random.Range(0, glitchSprites.Length)); //Once the game cartridge is in maybe put it here?
+                        break;
                     case 30:
                         fishManager.ProgressSpawner(1);
+                        break;
+                    case 32:
+                        GlitchDialgue("Couldn’t you just play this game forever?");
+                        break;
+                    case 35:
+                        GlitchBox(70);
+                        break;
+                    case 38:
+                        GlitchSprite(Random.Range(0, glitchSprites.Length));
+                        break;
+                    case 41:
+                        GlitchDialgue("Soon, you will be with us soon.");
                         break;
                 }
             }
