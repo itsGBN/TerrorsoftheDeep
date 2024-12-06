@@ -15,7 +15,8 @@ MonoBehaviour:
   fishSpeed: 1.5
   fishLifeTime: 10
   fishPopulation: 0.149
+  fishSore: 0
   fishName: Squid
-  fishSprite: {fileID: 21300000, guid: 66b685ce4ec664b4fb23da2fef61e6f4, type: 3}
+  fishSprite: {fileID: 21300000, guid: 4b1d248275468d0458d4dc63a002d504, type: 3}
   fishComment:
   - ........

@@ -110,7 +110,6 @@ namespace JustFish
                 if(other.GetComponent<FishBehavior>().namer == "Arm")
                 {
                     ProgressManager.instance.glitchSurvey = true;
-                    print(ProgressManager.instance.glitchSurvey);
                     ProgressManager.instance.GlitchHorror("TheManAnim");
                 }
             }
