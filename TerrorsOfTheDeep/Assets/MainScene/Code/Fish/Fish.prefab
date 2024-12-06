@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ab0562906d93774a86122aee2873029, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66b685ce4ec664b4fb23da2fef61e6f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -101,10 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977cb73a99fa4694eae5a5114712bbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.25
-  lifeTime: 13
-  comment: Now a by-itself-er.
-  namer: Grouper
+  speed: 1.5
+  lifeTime: 10
+  comment: ........
+  namer: Squid
+  scorer: 0
 --- !u!65 &3150004885398272896
 BoxCollider:
   m_ObjectHideFlags: 0

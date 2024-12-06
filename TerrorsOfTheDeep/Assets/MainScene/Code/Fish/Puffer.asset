@@ -15,6 +15,7 @@ MonoBehaviour:
   fishSpeed: 1
   fishLifeTime: 20
   fishPopulation: 0.126
+  fishSore: 50
   fishName: Puffer
   fishSprite: {fileID: 21300000, guid: 19effdcf62d03a440a568e7f5248cb88, type: 3}
   fishComment:

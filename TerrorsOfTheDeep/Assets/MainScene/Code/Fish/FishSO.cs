@@ -9,6 +9,7 @@ namespace JustFish
         public float fishSpeed; // How fast it moves
         public float fishLifeTime; // How long it lasts
         [Range(0, 1)] public float fishPopulation; // How much spawns
+        public int fishSore;
 
         [Header("Fish Description")] // How it looks and decribes
         public string fishName; // What is its name

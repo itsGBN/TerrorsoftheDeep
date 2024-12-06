@@ -15,6 +15,7 @@ MonoBehaviour:
   fishSpeed: 1.2
   fishLifeTime: 10
   fishPopulation: 0.285
+  fishSore: 15
   fishName: Flounder
   fishSprite: {fileID: 21300000, guid: fd574ef750306414e81886e37c18f7f4, type: 3}
   fishComment:

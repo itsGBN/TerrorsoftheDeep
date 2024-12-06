@@ -42,6 +42,7 @@ namespace JustFish
                         fishBehavior.lifeTime = fish.fishLifeTime;
                         fishRenderer.sprite = fish.fishSprite;
                         fishBehavior.speed = fish.fishSpeed;
+                        fishBehavior.scorer = fish.fishSore;
                         randomFishCommentNum = Random.Range(0, fish.fishComment.Length);
                         fishBehavior.comment = fish.fishComment[randomFishCommentNum];
                         yield return new WaitForSeconds(0.5f);
@@ -63,6 +64,7 @@ namespace JustFish
                         fishBehavior.lifeTime = fish.fishLifeTime;
                         fishRenderer.sprite = fish.fishSprite;
                         fishBehavior.speed = fish.fishSpeed;
+                        fishBehavior.scorer = fish.fishSore;
                         randomFishCommentNum = Random.Range(0, fish.fishComment.Length);
                         fishBehavior.comment = fish.fishComment[randomFishCommentNum];
                         yield return new WaitForSeconds(0.5f);

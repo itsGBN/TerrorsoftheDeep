@@ -16,9 +16,10 @@ namespace JustFish
         public Sprite hookSprite; // The original sprite of the hook
         public SpriteRenderer hookRenderer;
 
-        public string fishermanComment;
+        public string fishermanComment, fishermannames;
+        public int fishermanScore, score;
 
-        public TextMeshProUGUI fishermenLines;
+        public TextMeshProUGUI fishermenLines, fishermanScores, fishermenName, fishermanWorth;
 
         void Start()
         {
@@ -49,8 +50,12 @@ namespace JustFish
                     MoveReel(); // Use the Move Reel method
                     if(transform.position.y > 2)
                     {
+                        score += fishermanScore;
                         hookRenderer.sprite = hookSprite;
                         fishermenLines.text = fishermanComment;
+                        fishermanScores.text = "Score: " + score.ToString();
+                        fishermanWorth.text = "+" + fishermanScore.ToString();
+                        fishermenName.text = fishermannames;
                         if(!IsInvoking("SetText")) { Invoke("SetText", 1.5f); }
                         AudioManager.instance.fishReelStop();
                         AudioManager.instance.fishAddPoint();
@@ -85,6 +90,9 @@ namespace JustFish
         public void SetText()
         {
             fishermenLines.text = ".....";
+            fishermanScores.text = "Score: " + score.ToString();
+            fishermanWorth.text = ".....";
+            fishermenName.text = "......";
         }
 
         private void OnTriggerEnter(Collider other)
@@ -93,6 +101,8 @@ namespace JustFish
             {
                 hookRenderer.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
                 fishermanComment = other.gameObject.GetComponent<FishBehavior>().comment;
+                fishermanScore = other.gameObject.GetComponent<FishBehavior>().scorer;
+                fishermannames = other.gameObject.GetComponent<FishBehavior>().namer;
                 fishingState = FishingState.caughtfishing;
                 AudioManager.instance.fishHookLaunch();
                 ProgressManager.instance.IncreaseProgress();

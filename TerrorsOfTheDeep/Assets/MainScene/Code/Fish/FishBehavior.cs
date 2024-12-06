@@ -8,6 +8,7 @@ namespace JustFish
         public float lifeTime;
         public string comment;
         public string namer;
+        public int scorer;
 
         private void Start()
         {

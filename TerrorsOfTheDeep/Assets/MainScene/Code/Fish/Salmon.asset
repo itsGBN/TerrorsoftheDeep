@@ -15,6 +15,7 @@ MonoBehaviour:
   fishSpeed: 1.5
   fishLifeTime: 10
   fishPopulation: 0.285
+  fishSore: 10
   fishName: Salmon
   fishSprite: {fileID: 21300000, guid: 0cafc7dbf54fd35479a6f458839f2050, type: 3}
   fishComment:

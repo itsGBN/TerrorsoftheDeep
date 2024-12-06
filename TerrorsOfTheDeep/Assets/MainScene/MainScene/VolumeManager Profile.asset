@@ -189,7 +189,7 @@ MonoBehaviour:
     m_Value: 0.204
   m_MaxSamples:
     m_OverrideState: 1
-    m_Value: 24
+    m_Value: 3
 --- !u!114 &5049541243041230324
 MonoBehaviour:
   m_ObjectHideFlags: 3
