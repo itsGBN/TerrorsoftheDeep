@@ -10,6 +10,9 @@ namespace JustFish
         public string namer;
         public int scorer;
 
+        float amplitude = 0.04f; // Wave height
+        float frequency = 4f; // Wave speed
+
         private void Start()
         {
             if(namer == "Squid")
@@ -34,6 +37,12 @@ namespace JustFish
             if(gameObject.tag == "ProgressObject" && transform.position.x > 4)
             {
                 transform.position = new Vector3(-4, transform.position.y, transform.position.z);
+            }
+
+            if (gameObject.tag == "Squid")
+            {
+                transform.position = transform.position + Vector3.up * Mathf.Sin(Time.time * frequency) * amplitude;
+
             }
         }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Video;
 
 namespace JustFish
 {
@@ -31,15 +32,19 @@ namespace JustFish
 
         public FishManager fishManager;
 
+        public VideoPlayer videoPlayer;
+
         private void Awake()
         {
             if (instance == null) { instance = this; }
             else if (instance != this) { Destroy(this); }
+
+            videoPlayer.loopPointReached += EndReached;
         }
 
         private void Start()
         {
-
+   
         }
 
         private void Update()
@@ -93,6 +98,11 @@ namespace JustFish
                         break;
                     case 41:
                         GlitchDialgue("Soon, you will be with us soon.");
+                        fishManager.ProgressSpawner(1);
+                        break;
+                    case 43:
+                        videoPlayer.gameObject.transform.parent.gameObject.SetActive(true);
+                        videoPlayer.Play();
                         break;
                 }
             }
@@ -196,6 +206,11 @@ namespace JustFish
             glitchHorror.SetActive(true);
             AudioManager.instance.Glitch1();
             glitchHorrorAnim.Play(stateAnim);
+        }
+
+        void EndReached(VideoPlayer vp)
+        {
+            Destroy(vp.gameObject.transform.parent.gameObject);
         }
     }
 

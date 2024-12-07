@@ -12,11 +12,6 @@ namespace JustFish
             mousePosition.z = 5;
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, mousePosition.z));
         }
-
-        private void OnMouseDown()
-        {
-            print("Hello");
-        }
     }
 }
 

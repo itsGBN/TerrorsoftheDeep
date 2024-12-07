@@ -19,7 +19,9 @@ namespace JustFish
         public string fishermanComment, fishermannames;
         public int fishermanScore, score;
 
-        public TextMeshProUGUI fishermenLines, fishermanScores, fishermenName, fishermanWorth;
+        public TextMeshProUGUI fishermenLines, fishermanScores, fishermenName, fishermanWorth, pointSystem;
+
+        public GameObject PointSystem;
 
         void Start()
         {
@@ -50,11 +52,15 @@ namespace JustFish
                     MoveReel(); // Use the Move Reel method
                     if(transform.position.y > 2)
                     {
+                        PointSystem.SetActive(true);
+                        pointSystem.transform.position = new Vector3(-0.181f, 2.569f, 0);
+                        PointSystem.GetComponent<TextMeshProUGUI>().color = new Color(255, 255, 255, 255);
                         score += fishermanScore;
                         hookRenderer.sprite = hookSprite;
                         fishermenLines.text = fishermanComment;
                         fishermanScores.text = "Score: " + score.ToString();
                         fishermanWorth.text = "+" + fishermanScore.ToString();
+                        pointSystem.text = "+" + fishermanScore.ToString();
                         fishermenName.text = fishermannames;
                         if(!IsInvoking("SetText")) { Invoke("SetText", 1.5f); }
                         AudioManager.instance.fishReelStop();
