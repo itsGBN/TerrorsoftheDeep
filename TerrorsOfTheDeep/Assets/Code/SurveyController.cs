@@ -44,7 +44,7 @@ public class SurveyController : MonoBehaviour
         currentSurvey.SetActive(false);
         currentSurvey.transform.parent.transform.GetChild(0).gameObject.SetActive(false);
         currentSurvey.transform.parent.transform.GetChild(1).gameObject.SetActive(false);
-        AudioManager.instance.MusicOne();
+        AudioManager.instance.MusicTwo();
         AudioManager.instance.AmbieneceOne();
         hookController.canLevel2 = true;
     }

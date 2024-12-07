@@ -27,4 +27,14 @@ public class AudioManager : MonoBehaviour
     public void MusicOneStop() { if (Audio[5].isPlaying) { Audio[5].Stop(); } }
     public void AmbieneceOne() { if (!Audio[6].isPlaying) { Audio[6].Play(); } }
     public void AmbienceOneStop() { if (Audio[6].isPlaying) { Audio[6].Stop(); } }
+    public void fishLosePoint() { if (!Audio[9].isPlaying) { Audio[9].pitch = Random.Range(0.8f, 1.2f); Audio[9].Play(); } }
+    public void MusicTwo() { if (!Audio[10].isPlaying) { Audio[10].Play(); } }
+    public void MusicTwoStop() { if (Audio[10].isPlaying) { Audio[10].Stop(); } }
+    public void MusicThree() { if (!Audio[11].isPlaying) { Audio[11].Play(); } }
+    public void MusicThreeStop() { if (Audio[11].isPlaying) { Audio[11].Stop(); } }
+    public void MusicChaos() { if (!Audio[12].isPlaying) { Audio[12].Play(); } }
+    public void MusicChaosStop() { if (Audio[12].isPlaying) { Audio[12].Stop(); } }
+    public void MusicMenu() { if (!Audio[13].isPlaying) { Audio[13].Play(); } }
+    public void MusicMenuStop() { if (Audio[13].isPlaying) { Audio[13].Stop(); } }
+
 }

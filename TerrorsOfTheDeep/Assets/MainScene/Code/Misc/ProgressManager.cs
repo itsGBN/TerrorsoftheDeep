@@ -183,6 +183,7 @@ namespace JustFish
 
         public void GlitchSurveyClose()
         {
+            AudioManager.instance.MusicTwo();
             glitchQuestions[questionIterator-1].SetActive(false);
             fishhookManager.fishingState = FishingState.isfishing;
             fishhookManager.SetReel(fishhookManager.reelAnchors);

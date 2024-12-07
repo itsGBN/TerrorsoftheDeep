@@ -123,6 +123,7 @@ namespace JustFish
             if ((other.tag == "Squid" && fishingState == FishingState.caughtfishing) && GameObject.FindGameObjectsWithTag("ProgressObject").Length != 1) // When collided with the Fish tag
             {
                 hookRenderer.sprite = hookSprite;
+                AudioManager.instance.fishLosePoint();
                 AudioManager.instance.fishReelStop();
                 fishingState = FishingState.isfishing;
             }
