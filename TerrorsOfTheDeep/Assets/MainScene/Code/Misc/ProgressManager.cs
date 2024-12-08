@@ -8,9 +8,8 @@ namespace JustFish
     public class ProgressManager : MonoBehaviour
     {
         public bool glitchSurvey;
-        public int progressNum;
+        public int progressNum, glitchAudioFish;
         public static ProgressManager instance;
-
         public Sprite[] glitchSprites;
         public GameObject distortedFish;
 
@@ -50,6 +49,8 @@ namespace JustFish
         private void Update()
         {
             GlitchSurvey();
+            GlitchFishAudio();
+
         }
 
         public void IncreaseProgress()
@@ -59,6 +60,9 @@ namespace JustFish
                 progressNum++;
                 switch (progressNum)
                 {
+                    case 1:
+                        glitchAudioFish = 1;
+                        break;
                     case 5:
                         GlitchSprite(Random.Range(0, glitchSprites.Length));
                         break;
@@ -110,6 +114,7 @@ namespace JustFish
 
         public void ResetGlitch()
         {
+            glitchAudioFish = 0;
             glitchSurvey = false;
             distortedFish.SetActive(false);
         }
@@ -178,6 +183,7 @@ namespace JustFish
             glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
             glitchQuestions[questionIterator - 1].SetActive(false);
             questionIterator++;
+            if (Random.value >= 0.5f) { StartCoroutine(GlitchBoxRec(20)); }
             StartCoroutine(GlitchBackground(6));
         }
 
@@ -212,6 +218,24 @@ namespace JustFish
         void EndReached(VideoPlayer vp)
         {
             Destroy(vp.gameObject.transform.parent.gameObject);
+        }
+
+        public void GlitchFishAudio()
+        {
+            if (glitchAudioFish != 0 && fishhookManager.fishingState == FishingState.isfishing)
+            {
+                switch (glitchAudioFish)
+                {
+                    case 0:
+                        AudioManager.instance.NotSafe();
+                        break;
+                    case 1:
+                        AudioManager.instance.NeverLeave();
+                        break;
+                }
+
+                ResetGlitch();
+            }
         }
     }
 

@@ -36,5 +36,9 @@ public class AudioManager : MonoBehaviour
     public void MusicChaosStop() { if (Audio[12].isPlaying) { Audio[12].Stop(); } }
     public void MusicMenu() { if (!Audio[13].isPlaying) { Audio[13].Play(); } }
     public void MusicMenuStop() { if (Audio[13].isPlaying) { Audio[13].Stop(); } }
+    public void NotSafe() { if (!Audio[14].isPlaying) { Audio[14].Play(); } }
+
+    public void NeverLeave() { if (!Audio[15].isPlaying) { Audio[15].Play(); } }
+
 
 }
