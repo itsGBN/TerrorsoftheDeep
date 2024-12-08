@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19effdcf62d03a440a568e7f5248cb88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ab0562906d93774a86122aee2873029, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977cb73a99fa4694eae5a5114712bbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  lifeTime: 20
-  comment: Maybe it's better to leave this one out of the touch tank.
-  namer: Puffer
-  scorer: 50
+  speed: 1.25
+  lifeTime: 13
+  comment: Now a by-itself-er.
+  namer: Grouper
+  scorer: 25
 --- !u!65 &3150004885398272896
 BoxCollider:
   m_ObjectHideFlags: 0

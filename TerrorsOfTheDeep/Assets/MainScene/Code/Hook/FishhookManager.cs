@@ -11,7 +11,9 @@ namespace JustFish
         
         public LineRenderer reel; // Use the linereder as the reel
         public Transform[] reelAnchors; // start and end positions for the reel
+        public Transform[] targetsRell;
         Transform[] reelPoints; // Find its transform points
+
 
         public Sprite hookSprite; // The original sprite of the hook
         public SpriteRenderer hookRenderer;
@@ -23,12 +25,14 @@ namespace JustFish
 
         public GameObject PointSystem;
 
+        public ReelBehavior reelManager;
+
         void Start()
         {
             SetReel(reelAnchors); //Use the SetReel Method
         }
 
-        void Update()
+        void FixedUpdate()
         {
             FishingStates(); //Use the Fishing State Method
         }
@@ -40,14 +44,14 @@ namespace JustFish
             switch (fishingState)
             {
                 case FishingState.isfishing: // When fishing
-                    mousePosition.z = 10f; // Initialize the mouse position of the z axis
-                    transform.position = Camera.main.ScreenToWorldPoint(new Vector3(915f, mousePosition.y, mousePosition.z));  // Make the Hook follow the mouse y position
+                    if (reelManager.reelDirection == "Left") { transform.position = Vector3.MoveTowards(transform.position, targetsRell[1].position, 1f * Time.deltaTime); }
+                    if (reelManager.reelDirection == "Right") { transform.position = Vector3.MoveTowards(transform.position, targetsRell[0].position, 1f * Time.deltaTime); }
                     MoveReel(); // Use the Move Reel method
                     break; // Break
 
                 case FishingState.caughtfishing: // When fishing
-                    mousePosition.z = 10f; // Initialize the mouse position of the z axis
-                    transform.position = Camera.main.ScreenToWorldPoint(new Vector3(915f, mousePosition.y, mousePosition.z));  // Make the Hook follow the mouse y position
+                    if (reelManager.reelDirection == "Left") { transform.position = Vector3.MoveTowards(transform.position, targetsRell[1].position, 1f * Time.deltaTime); }
+                    if (reelManager.reelDirection == "Right") { transform.position = Vector3.MoveTowards(transform.position, targetsRell[0].position, 1f * Time.deltaTime); }
                     AudioManager.instance.fishReel();
                     MoveReel(); // Use the Move Reel method
                     if(transform.position.y > 2)
@@ -130,3 +134,7 @@ namespace JustFish
         }
     }
 }
+
+//mousePosition.z = 10f; // Initialize the mouse position of the z axis
+//transform.position = Camera.main.ScreenToWorldPoint(new Vector3(915f, mousePosition.y, mousePosition.z));  // Make the Hook follow the mouse y position
+//if (reelManager.reelDirection == "Right") { transform.position = Vector3.MoveTowards(transform.position, targetsRell[0].position, 0.5f * Time.deltaTime); }
