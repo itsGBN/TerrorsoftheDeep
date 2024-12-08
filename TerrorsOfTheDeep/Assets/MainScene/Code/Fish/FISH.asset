@@ -15,7 +15,7 @@ MonoBehaviour:
   fishSpeed: 1.5
   fishLifeTime: 10
   fishPopulation: 0.125
-  fishSore: -10000
+  fishSore: 0
   fishName: '"FISH"'
   fishSprite: {fileID: 21300000, guid: 4a7eef3acaf2e0c488f8b58324a26d02, type: 3}
   fishComment:

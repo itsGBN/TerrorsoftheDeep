@@ -14775,7 +14775,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c2aeade7ba2fc0f44bfc06c2d8eb3aac, type: 3}
   m_Resource: {fileID: 8300000, guid: c2aeade7ba2fc0f44bfc06c2d8eb3aac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.234
+  m_Volume: 0.85
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -30193,6 +30193,7 @@ MonoBehaviour:
   pointSystem: {fileID: 79109569}
   PointSystem: {fileID: 79109566}
   reelManager: {fileID: 987695847}
+  reelSpeedMultiplier: 2
 --- !u!212 &2010260321
 SpriteRenderer:
   m_ObjectHideFlags: 0

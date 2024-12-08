@@ -60,51 +60,53 @@ namespace JustFish
                 progressNum++;
                 switch (progressNum)
                 {
-                    case 1:
-                        glitchAudioFish = 1;
-                        break;
                     case 5:
                         GlitchSprite(Random.Range(0, glitchSprites.Length));
                         break;
-                    case 10:
+                    case 7:
                         GlitchDialgue("We’re so happy you joined us!");
+                        GlitchBox(40);
+                        break;
+                    case 10:
+                        GlitchSprite(Random.Range(0, glitchSprites.Length));
                         break;
                     case 12:
                         GlitchBox(40);
+                        GlitchDialgue("He’s happier with us. So much happier.");
                         break;
                     case 15:
-                        GlitchSprite(Random.Range(0, glitchSprites.Length));
+                        GlitchBox(60);
+                        fishManager.ProgressSpawner(0);
                         break;
-                    case 17:
-                        GlitchDialgue("----Dead--mxwacbi");
+                    case 18:
+                        GlitchBox(75);
+                        fishManager.ProgressSpawner(1);
                         break;
                     case 20:
                         GlitchHorror("CreepyFishAnim");
-                        fishManager.ProgressSpawner(0);
                         break;
-                    case 23:
-                        GlitchDialgue("He’s happier with us. So much happier.");
-                        break;
-                    case 27:
-                        GlitchSprite(Random.Range(0, glitchSprites.Length)); //Once the game cartridge is in maybe put it here?
-                        break;
-                    case 30:
-                        fishManager.ProgressSpawner(1);
-                        break;
-                    case 32:
+                    case 22:
+                        GlitchBox(40);
                         GlitchDialgue("Couldn’t you just play this game forever?");
                         break;
-                    case 35:
-                        GlitchBox(70);
+                    case 25:
+                        glitchAudioFish = 1;//Once the game cartridge is in maybe put it here?
                         break;
-                    case 38:
-                        GlitchSprite(Random.Range(0, glitchSprites.Length));
+                    case 27:
+                        GlitchHorror("CreepyFishAnim");
                         break;
-                    case 41:
+                    case 29:
+                        glitchAudioFish = 0;
+                        break;
+                    case 31:
+                        GlitchBox(40);
                         GlitchDialgue("Soon, you will be with us soon.");
+                        break;
+                    case 33:
+                        GlitchBox(80);
                         fishManager.ProgressSpawner(1);
                         break;
-                    case 43:
+                    case 36:
                         videoPlayer.gameObject.transform.parent.gameObject.SetActive(true);
                         videoPlayer.Play();
                         break;
