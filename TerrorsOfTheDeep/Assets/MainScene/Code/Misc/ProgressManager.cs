@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 namespace JustFish
@@ -72,6 +73,7 @@ namespace JustFish
                         break;
                     case 12:
                         GlitchBox(40);
+                        glitchAudioFish = 1;
                         GlitchDialgue("He’s happier with us. So much happier.");
                         break;
                     case 15:
@@ -90,10 +92,11 @@ namespace JustFish
                         GlitchDialgue("Couldn’t you just play this game forever?");
                         break;
                     case 25:
+                        fishManager.ProgressSpawner(3);
                         glitchAudioFish = 1;//Once the game cartridge is in maybe put it here?
                         break;
                     case 27:
-                        GlitchHorror("CreepyFishAnim");
+                        GlitchHorror("PentagramAnim");
                         break;
                     case 29:
                         glitchAudioFish = 0;
@@ -102,13 +105,9 @@ namespace JustFish
                         GlitchBox(40);
                         GlitchDialgue("Soon, you will be with us soon.");
                         break;
-                    case 33:
+                    case 35:
                         GlitchBox(80);
-                        fishManager.ProgressSpawner(1);
-                        break;
-                    case 36:
-                        videoPlayer.gameObject.transform.parent.gameObject.SetActive(true);
-                        videoPlayer.Play();
+                        fishManager.ProgressSpawner(2);
                         break;
                 }
             }
@@ -217,9 +216,18 @@ namespace JustFish
             glitchHorrorAnim.Play(stateAnim);
         }
 
+
+        public void EndStart()
+        {
+            videoPlayer.gameObject.transform.parent.gameObject.SetActive(true);
+            AudioManager.instance.MusicTwoStop();
+            videoPlayer.Play();
+        }
+
         void EndReached(VideoPlayer vp)
         {
             Destroy(vp.gameObject.transform.parent.gameObject);
+            SceneManager.LoadScene("MainScene 1");
         }
 
         public void GlitchFishAudio()

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e54084281461f84e92acbd39e111b68, type: 3}
+  m_Name: Cartridge
+  m_EditorClassIdentifier: 
+  fishSpeed: 1.5
+  fishLifeTime: 10
+  fishPopulation: 0.149
+  fishSore: 0
+  fishName: Cartridge
+  fishSprite: {fileID: 21300000, guid: 3e86dd169090c544c8ae401de6c64fa1, type: 3}
+  fishComment:
+  - 'ERROR 4028342-A525. REPORT TO DEVELOPERS NOW. '

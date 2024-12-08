@@ -10204,8 +10204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: -14.1, y: -26.7}
+  m_SizeDelta: {x: 1172.7, y: 549.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &399315921
 BoxCollider:
@@ -10644,7 +10644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -463, y: 364}
+  m_AnchoredPosition: {x: -489, y: 369}
   m_SizeDelta: {x: -1271.2, y: -813.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421957398
@@ -12194,8 +12194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: 0.00000011921, y: 13}
+  m_SizeDelta: {x: 1840.7, y: 967.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &522125615
 BoxCollider:
@@ -12652,8 +12652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: -27, y: -44}
+  m_SizeDelta: {x: 812, y: 384.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &540466037
 BoxCollider:
@@ -17561,8 +17561,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: -9, y: -34}
+  m_SizeDelta: {x: 946.1, y: 429.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &864909214
 BoxCollider:
@@ -20083,8 +20083,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: 0, y: -21}
+  m_SizeDelta: {x: 1055, y: 484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1042303993
 BoxCollider:
@@ -20195,8 +20195,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: 10, y: -0.0000085831}
+  m_SizeDelta: {x: 1585.4, y: 809.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1047717601
 BoxCollider:
@@ -20835,8 +20835,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: 30, y: -22.1}
+  m_SizeDelta: {x: 1367.6, y: 696.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1090104102
 BoxCollider:
@@ -22291,7 +22291,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -22299,7 +22299,8 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: file://C:/Users/itsno/OneDrive/Documents/UNITY/MSF/MSF-P2/TerrorsoftheDeep/TerrorsOfTheDeep/Assets/Art/Glitches/1st
+    Level/THE_END.prproj.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -26243,6 +26244,8 @@ MonoBehaviour:
   progressObj:
   - {fileID: 11400000, guid: adcde69d446407849a17b9a7136ba445, type: 2}
   - {fileID: 11400000, guid: 01e963aa6d89d7342a901238e5aa20b1, type: 2}
+  - {fileID: 11400000, guid: fd83b2a7875cb214c9fe83ebd47bba0e, type: 2}
+  - {fileID: 11400000, guid: 4c84cfe7db1f37648b764d5a4ff50c71, type: 2}
   wave1: 1
   fishPrefab: {fileID: 7791053661742385582, guid: 7d8a8d7f52b2e854ea8d5f8728230998, type: 3}
 --- !u!1 &1700762847
@@ -28449,8 +28452,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: 19.5, y: -15.7}
+  m_SizeDelta: {x: 1262.6, y: 625.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1883009678
 BoxCollider:
@@ -30692,8 +30695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: -67}
-  m_SizeDelta: {x: 633.5, y: 280.3}
+  m_AnchoredPosition: {x: -27, y: -52}
+  m_SizeDelta: {x: 709.4, y: 328.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &2052657954
 BoxCollider:

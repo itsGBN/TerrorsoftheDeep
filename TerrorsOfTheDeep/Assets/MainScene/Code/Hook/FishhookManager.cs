@@ -124,6 +124,10 @@ namespace JustFish
                     ProgressManager.instance.glitchSurvey = true;
                     ProgressManager.instance.GlitchHorror("TheManAnim");
                 }
+                if (other.GetComponent<FishBehavior>().namer == "Deadbody")
+                {
+                    ProgressManager.instance.EndStart();
+                }
             }
 
             if ((other.tag == "Squid" && fishingState == FishingState.caughtfishing) && GameObject.FindGameObjectsWithTag("ProgressObject").Length != 1) // When collided with the Fish tag

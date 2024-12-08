@@ -48,7 +48,7 @@ namespace JustFish
 
         public void SetProgress()
         {
-            if (namer != "Newspaper" && namer != "Arm")
+            if (namer != "Newspaper" && namer != "Arm" && namer != "Deadbody" && namer != "Cartridge")
             {
                 Destroy(gameObject, lifeTime);
             }

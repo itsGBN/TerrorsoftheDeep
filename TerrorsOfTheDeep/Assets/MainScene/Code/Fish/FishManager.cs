@@ -20,8 +20,8 @@ namespace JustFish
 
         void Start()
         {
-            StartCoroutine(FishSpawner());
             wave1 = true;
+            StartCoroutine(FishSpawner());
         }
 
         public IEnumerator FishSpawner()
