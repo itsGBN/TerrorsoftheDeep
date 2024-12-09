@@ -102,7 +102,6 @@ namespace JustFish
                         break;
                     case 29:
                         glitchAudioFish = 0;
-                       
                         break;
                     case 31:
                         GlitchBox(40);
