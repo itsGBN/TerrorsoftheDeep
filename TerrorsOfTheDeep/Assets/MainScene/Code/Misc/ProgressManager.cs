@@ -33,6 +33,8 @@ namespace JustFish
         public FishManager fishManager;
 
         public VideoPlayer videoPlayer;
+        
+        public GameObject howToPlay;
 
         private void Awake()
         {
@@ -105,6 +107,9 @@ namespace JustFish
                         GlitchBox(40);
                         GlitchDialgue("Soon, you will be with us soon.");
                         break;
+                    case 34:
+                        glitchAudioFish = 2;
+                        break;
                     case 35:
                         GlitchBox(80);
                         fishManager.ProgressSpawner(2);
@@ -136,7 +141,6 @@ namespace JustFish
             if (fishhookManager.fishingState == FishingState.caughtfishing)
             {
                 fishhookManager.fishermanComment = dialogue;
-                ResetGlitch();
             }
         }
 
@@ -145,7 +149,6 @@ namespace JustFish
             if (fishhookManager.fishingState == FishingState.caughtfishing)
             {
                 StartCoroutine(GlitchBoxRec(boxnum));
-                ResetGlitch();
             }
         }
 
@@ -236,7 +239,7 @@ namespace JustFish
             {
                 switch (glitchAudioFish)
                 {
-                    case 0:
+                    case 2:
                         AudioManager.instance.NotSafe();
                         break;
                     case 1:
@@ -246,6 +249,11 @@ namespace JustFish
 
                 ResetGlitch();
             }
+        }
+
+        public void HtPlay()
+        {
+            Destroy(howToPlay);
         }
     }
 
