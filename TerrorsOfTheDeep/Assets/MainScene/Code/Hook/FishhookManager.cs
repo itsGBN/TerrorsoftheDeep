@@ -68,7 +68,8 @@ namespace JustFish
                         fishermanWorth.text = "+" + fishermanScore.ToString();
                         pointSystem.text = "+" + fishermanScore.ToString();
                         fishermenName.text = fishermannames;
-                        if(!IsInvoking("SetText")) { Invoke("SetText", 1.5f); }
+                        CancelInvoke("SetText");
+                        Invoke("SetText", 3f); 
                         AudioManager.instance.fishReelStop();
                         AudioManager.instance.fishAddPoint();
                         fishingState = FishingState.isfishing;

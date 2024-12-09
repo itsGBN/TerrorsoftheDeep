@@ -25,7 +25,7 @@ public class ReelBehavior : MonoBehaviour
         orbVector = Input.mousePosition - orbVector;
         float angle = Mathf.Atan2(orbVector.y, orbVector.x) * Mathf.Rad2Deg;
         pivot.position = orb.position;
-        pivot.rotation = Quaternion.AngleAxis(angle - 180, Vector3.forward);
+        pivot.rotation = Quaternion.AngleAxis(angle - 35, Vector3.forward);
         if(checkAngle > angle && checkAngle - angle >= -50) { reelDirection = "Left";} 
         else if (checkAngle < angle && checkAngle - angle <= 50) { reelDirection = "Right"; }
         else { reelDirection = "None"; }
