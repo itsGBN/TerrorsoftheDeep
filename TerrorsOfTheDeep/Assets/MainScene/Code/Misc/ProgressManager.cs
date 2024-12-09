@@ -174,7 +174,7 @@ namespace JustFish
             {
                 AudioManager.instance.MusicOneStop();
                 glitchQuestions[questionIterator].SetActive(true);
-                glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
+                //glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
                 questionIterator++;
                 fishhookManager.fishingState = FishingState.notfishing;
                 ResetGlitch();
@@ -184,7 +184,7 @@ namespace JustFish
         public void GlitchSurveyRec()
         {
             glitchQuestions[questionIterator].SetActive(true);
-            glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
+           // glitchQuestions[questionIterator].transform.position = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(-0.5f, 2.5f), -5);
             glitchQuestions[questionIterator - 1].SetActive(false);
             questionIterator++;
             if (Random.value >= 0.5f) { StartCoroutine(GlitchBoxRec(20)); }
