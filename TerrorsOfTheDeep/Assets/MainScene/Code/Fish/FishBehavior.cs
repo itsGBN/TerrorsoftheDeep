@@ -9,6 +9,7 @@ namespace JustFish
         public string comment;
         public string namer;
         public int scorer;
+        FishManager fishManager;
 
         float amplitude = 0.04f; // Wave height
         float frequency = 4f; // Wave speed
@@ -20,11 +21,13 @@ namespace JustFish
                 gameObject.tag = "Squid";
             }
             Invoke("SetProgress", 0.1f);
+            fishManager = GameObject.Find("FishManager").GetComponent<FishManager>();
         }
 
         void FixedUpdate()
         {
             FishMovement();
+            if (fishManager.canFishing && namer != "Deadbody") { Destroy(gameObject); }
         }
 
         public void FishMovement()

@@ -17,10 +17,12 @@ namespace JustFish
         public GameObject fishPrefab;
         SpriteRenderer fishRenderer;
         FishBehavior fishBehavior;
+        public bool canFishing = false;
 
         void Start()
         {
             wave1 = true;
+            canFishing = false;
             StartCoroutine(FishSpawner());
         }
 

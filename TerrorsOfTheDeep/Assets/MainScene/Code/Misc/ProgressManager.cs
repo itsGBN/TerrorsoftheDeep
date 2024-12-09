@@ -115,6 +115,8 @@ namespace JustFish
                         break;
                     case 30:
                         GlitchBox(80);
+                        AudioManager.instance.MusicOneStop();
+                        fishManager.canFishing = true;
                         fishManager.ProgressSpawner(2);
                         break;
                 }
@@ -226,7 +228,6 @@ namespace JustFish
         public void EndStart()
         {
             videoPlayer.gameObject.transform.parent.gameObject.SetActive(true);
-            AudioManager.instance.MusicTwoStop();
             videoPlayer.Play();
         }
 

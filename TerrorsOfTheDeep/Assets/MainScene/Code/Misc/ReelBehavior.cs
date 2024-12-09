@@ -21,6 +21,7 @@ public class ReelBehavior : MonoBehaviour
 
     void OnMouseDrag()
     {
+        AudioManager.instance.fishReel();
         Vector3 orbVector = Camera.main.WorldToScreenPoint(orb.position);
         orbVector = Input.mousePosition - orbVector;
         float angle = Mathf.Atan2(orbVector.y, orbVector.x) * Mathf.Rad2Deg;
@@ -28,12 +29,13 @@ public class ReelBehavior : MonoBehaviour
         pivot.rotation = Quaternion.AngleAxis(angle - 35, Vector3.forward);
         if(checkAngle > angle && checkAngle - angle >= -50) { reelDirection = "Left";} 
         else if (checkAngle < angle && checkAngle - angle <= 50) { reelDirection = "Right"; }
-        else { reelDirection = "None"; }
+        else { reelDirection = "None"; AudioManager.instance.fishReelStop(); }
         checkAngle = angle;
     }
 
     private void OnMouseUp()
     {
        reelDirection = "None";
+        AudioManager.instance.fishReelStop();
     }
 }

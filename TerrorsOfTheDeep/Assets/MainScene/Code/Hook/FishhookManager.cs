@@ -54,7 +54,6 @@ namespace JustFish
                 case FishingState.caughtfishing: // When fishing
                     if (reelManager.reelDirection == "Left") { transform.position = Vector3.MoveTowards(transform.position, targetsRell[1].position, reelSpeedMultiplier * Time.deltaTime); }
                     if (reelManager.reelDirection == "Right") { transform.position = Vector3.MoveTowards(transform.position, targetsRell[0].position, reelSpeedMultiplier * Time.deltaTime); }
-                    AudioManager.instance.fishReel();
                     MoveReel(); // Use the Move Reel method
                     if(transform.position.y > 2)
                     {
@@ -70,7 +69,6 @@ namespace JustFish
                         fishermenName.text = fishermannames;
                         CancelInvoke("SetText");
                         Invoke("SetText", 3f); 
-                        AudioManager.instance.fishReelStop();
                         AudioManager.instance.fishAddPoint();
                         fishingState = FishingState.isfishing;
                     }
@@ -135,7 +133,6 @@ namespace JustFish
             {
                 hookRenderer.sprite = hookSprite;
                 AudioManager.instance.fishLosePoint();
-                AudioManager.instance.fishReelStop();
                 fishingState = FishingState.isfishing;
             }
         }
