@@ -102,6 +102,7 @@ namespace JustFish
                         break;
                     case 29:
                         glitchAudioFish = 0;
+                       
                         break;
                     case 31:
                         GlitchBox(40);
@@ -193,7 +194,7 @@ namespace JustFish
 
         public void GlitchSurveyClose()
         {
-            AudioManager.instance.MusicTwo();
+            AudioManager.instance.MusicChaos();
             glitchQuestions[questionIterator-1].SetActive(false);
             fishhookManager.fishingState = FishingState.isfishing;
             fishhookManager.SetReel(fishhookManager.reelAnchors);
