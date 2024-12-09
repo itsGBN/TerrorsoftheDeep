@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e54084281461f84e92acbd39e111b68, type: 3}
-  m_Name: Puffer
+  m_Name: Pufferfish
   m_EditorClassIdentifier: 
   fishSpeed: 1
   fishLifeTime: 20

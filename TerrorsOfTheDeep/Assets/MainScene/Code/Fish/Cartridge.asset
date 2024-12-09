@@ -19,4 +19,4 @@ MonoBehaviour:
   fishName: Cartridge
   fishSprite: {fileID: 21300000, guid: 3e86dd169090c544c8ae401de6c64fa1, type: 3}
   fishComment:
-  - "A worn and much loved copy of \u201CJust A Fishing Game.\u201D"
+  - "A water-logged copy of \u201CJust A Fishing Game.\u201D"

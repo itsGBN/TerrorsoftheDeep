@@ -75,7 +75,6 @@ namespace JustFish
                         break;
                     case 12:
                         GlitchBox(40);
-                        glitchAudioFish = 1;
                         GlitchDialgue("He’s happier with us. So much happier.");
                         break;
                     case 15:
@@ -90,27 +89,31 @@ namespace JustFish
                         GlitchHorror("CreepyFishAnim");
                         break;
                     case 22:
-                        GlitchBox(40);
-                        GlitchDialgue("Couldn’t you just play this game forever?");
+                        glitchAudioFish = 0;
                         break;
-                    case 25:
+                    case 23:
+                        GlitchBox(40);
                         fishManager.ProgressSpawner(3);
                         glitchAudioFish = 1;//Once the game cartridge is in maybe put it here?
                         break;
-                    case 27:
+                    case 25:
                         GlitchHorror("PentagramAnim");
                         break;
-                    case 29:
-                        glitchAudioFish = 0;
-                        break;
-                    case 31:
+                    case 26:
                         GlitchBox(40);
+                        GlitchDialgue("Couldn’t you just play this game forever?");
+                        break;
+                    case 27:
+                        GlitchHorror("TheMan");
+                        break;
+                    case 28:
                         GlitchDialgue("Soon, you will be with us soon.");
                         break;
-                    case 34:
+                    case 29:
+                        GlitchBox(50);
                         glitchAudioFish = 2;
                         break;
-                    case 35:
+                    case 30:
                         GlitchBox(80);
                         fishManager.ProgressSpawner(2);
                         break;

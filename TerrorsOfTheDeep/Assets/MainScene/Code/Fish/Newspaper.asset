@@ -19,4 +19,4 @@ MonoBehaviour:
   fishName: Newspaper
   fishSprite: {fileID: 21300000, guid: 2c0a2b14e27fc614b96a8a6e4249a64f, type: 3}
   fishComment:
-  - "\u201CLocal boy stole rowboat, suspected to have drowned off coast of\u2026\u201D"
+  - "\u201CLocal boy steals rowboat, drowns off coast of...\u201D"
